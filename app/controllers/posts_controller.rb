@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @post = Post.all
+    @posts = Post.all
+    respond_to do |format|
+      format.html { render :index }
+      format.json { render :json => @posts }
+    end
   end
 
   def create

@@ -5,7 +5,13 @@ window.Journal = {
   Routers: {},
   initialize: function() {
 		var posts = new Journal.Collections.Posts();
-		console.log(posts);
+		posts.fetch({
+			success: function() {
+				console.log(posts);
+			}
+		});
+		var postsIndexView = new Journal.Views.PostsIndex({ collection: posts });
+		$('.content').html(postsIndexView.render().$el);
   }
 };
 
