@@ -2,6 +2,6 @@
 
 <ul>
 	<% posts.each(function(post) { %>
-		<li><%= post.escape('title') %></li>
+		<li><%= post.escape('title') %><button class="destroy" data-id="<%= post.escape('id') %>">Destroy</button></li>
 	<% }); %>
 </ul>
